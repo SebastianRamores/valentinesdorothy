@@ -77,9 +77,10 @@ app.use((req, res, next) => {
     // Serve React build in production
     const root = path.join(process.cwd(), "dist"); // or "build" if Vite outputs there
     app.use(express.static(root));
-    app.get('/:path(.*)', (_req, res) => {
+    app.get('/:catchAll(.*)', (_req, res) => {
   res.sendFile(path.join(root, "index.html"));
 });
+
 
   } else {
     // Setup Vite dev server in development
