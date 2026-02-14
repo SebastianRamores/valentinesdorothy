@@ -104,14 +104,15 @@ export default function Valentine() {
             <div className="prose prose-lg prose-pink text-gray-600 font-display text-xl leading-relaxed space-y-4 relative z-10">
               <p>
                 From the moment you walked into my life, everything became brighter. 
-                Your smile is my favorite sight, and your laughter is my favorite sound. I love you gay boy
+                Your smile is my favorite sight, and your laughter is my favorite sound. You may think i'm full of shit when i say sweet things to you cus u always tell me you're horrible but you're not T-T 
+                You better stop with that thing yes, i miss you so much yes and i hope na you think of me from time to time and i hope na my name still brings happy and kewl memories. You're the best yes and 
+                I love and miss you gay boy
               </p>
               
               <ChasingAnimation />
 
               <p>
-                Every day with you is a new adventure, and I can't wait for all the 
-                memories we haven't made yet. You make the ordinary feel extraordinary.
+                BWAHAHHA sobrang broke ko teh, paganto ganto lang kayang ibigay ng jawi. i've poured my heart to making this valentine's dedication to you yes. 
               </p>
               <p className="font-bold text-primary pt-4 text-2xl">
                 I love you more than words can say.
@@ -245,7 +246,7 @@ export default function Valentine() {
               <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10">
                 <h3 className="text-xl font-bold text-primary mb-2 font-display">Our Sanctuary</h3>
                 <p className="text-gray-600">
-                  Imagine waking up here together every Sunday morning, with the sun streaming in and nowhere to be.
+                  Imagine waking up here together every Sunday morning, with the sun streaming in and nowhere to be. (If you're wondering, gawa ko yn lahat sa sketchup pro and tig render ko so jan tlaga ako natagalan kaya nakita mo na to sa 15 na dahil jan hays.)
                 </p>
               </div>
             </div>

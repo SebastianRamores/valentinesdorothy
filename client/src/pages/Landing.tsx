@@ -55,19 +55,19 @@ export default function Landing() {
       "No",
       "Are you sure?",
       "Really sure?",
-      "Think again!",
+      "Really",
       "Last chance!",
       "Surely not?",
-      "You might regret this!",
-      "Give it another thought!",
-      "Are you absolutely certain?",
-      "This could be a mistake!",
-      "Have a heart!",
-      "Don't be so cold!",
-      "Change of heart?",
-      "Wouldn't you reconsider?",
-      "Is that your final answer?",
-      "You're breaking my heart ;(",
+      "HEHE",
+      "GAY",
+      "GAY",
+      "GAYBOY",
+      "GAYYYY",
+      "GAYBOYGAYBOY",
+      "GAYBOYGAYBOYGAYBOY",
+      "GAYBOYY",
+      "GAYBOYYSS",
+      "HEHEHEHE",
     ];
 
     return phrases[Math.min(noCount, phrases.length - 1)];
@@ -94,7 +94,7 @@ export default function Landing() {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary drop-shadow-sm px-4 leading-tight">
-            Dorothy, will you be my Valentine?
+            Dorothy, You are my valentine yes
           </h1>
         </motion.div>
 
