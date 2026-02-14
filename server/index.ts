@@ -75,21 +75,17 @@ app.use((req, res, next) => {
     return res.status(status).json({ message });
   });
 
-  if (process.env.NODE_ENV === "production") {
-    // Serve React build
-    const root = path.join(process.cwd(), "dist");
-    app.use(express.static(root));
+    if (process.env.NODE_ENV === "production") {
+  // Serve React build
+  const root = path.join(process.cwd(), "dist", "public"); // <-- add "public"
+  app.use(express.static(root));
 
-    // Fallback middleware for all non-API routes
-    app.use((_req, res) => {
-      res.sendFile(path.join(root, "index.html"));
-    });
+  // Fallback middleware for all non-API routes
+  app.use((_req, res) => {
+    res.sendFile(path.join(root, "index.html"));
+  });
+}
 
-  } else {
-    // Setup Vite dev server in development
-    const { setupVite } = await import("./vite");
-    await setupVite(httpServer, app);
-  }
 
   const port = parseInt(process.env.PORT || "5000", 10);
   httpServer.listen(port, "0.0.0.0", () => {
