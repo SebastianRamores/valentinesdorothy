@@ -14,6 +14,7 @@ declare module "http" {
   }
 }
 
+// JSON + URL-encoded parsing
 app.use(
   express.json({
     verify: (req, _res, buf) => {
@@ -21,9 +22,9 @@ app.use(
     },
   }),
 );
-
 app.use(express.urlencoded({ extended: false }));
 
+// Logger function
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
@@ -31,7 +32,6 @@ export function log(message: string, source = "express") {
     second: "2-digit",
     hour12: true,
   });
-
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
@@ -39,7 +39,7 @@ export function log(message: string, source = "express") {
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
+  let capturedJsonResponse: Record<string, any> | undefined;
 
   const originalResJson = res.json;
   res.json = function (bodyJson, ...args) {
@@ -59,9 +59,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Register routes
 (async () => {
   await registerRoutes(httpServer, app);
 
+  // Global error handler
   app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
@@ -74,14 +76,14 @@ app.use((req, res, next) => {
   });
 
   if (process.env.NODE_ENV === "production") {
-    // Serve React build in production
-    const root = path.join(process.cwd(), "dist"); // or "build" if Vite outputs there
+    // Serve React build
+    const root = path.join(process.cwd(), "dist");
     app.use(express.static(root));
-    app.get('*', (_req, res) => {
-  res.sendFile(path.join(root, 'index.html'));
-});
 
-
+    // Fallback middleware for all non-API routes
+    app.use((_req, res) => {
+      res.sendFile(path.join(root, "index.html"));
+    });
 
   } else {
     // Setup Vite dev server in development
@@ -90,9 +92,7 @@ app.use((req, res, next) => {
   }
 
   const port = parseInt(process.env.PORT || "5000", 10);
-  // Listen on 0.0.0.0 for Render
   httpServer.listen(port, "0.0.0.0", () => {
     log(`✅ Server running on port ${port}`);
   });
-
 })();
