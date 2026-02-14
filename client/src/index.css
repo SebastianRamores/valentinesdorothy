@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Nunito:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Pastel Romantic Palette */
+  --font-display: 'Architects Daughter', cursive;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Rose Pink Theme */
+  --background: 350 100% 98%;      /* Very light pink */
+  --foreground: 345 40% 20%;       /* Dark rose text */
+  
+  --primary: 345 80% 65%;          /* Rose pink */
+  --primary-foreground: 0 0% 100%; /* White */
+  
+  --secondary: 345 40% 90%;        /* Soft pink button bg */
+  --secondary-foreground: 345 50% 30%;
+  
+  --muted: 340 30% 96%;
+  --muted-foreground: 345 20% 50%;
+  
+  --accent: 330 80% 70%;           /* Accent pink */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 345 30% 85%;
+  --input: 345 30% 90%;
+  --ring: 345 80% 65%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 345 40% 20%;
+  
+  --radius: 1rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.2) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255, 209, 220, 0.2) 0%, transparent 20%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide;
+  }
+}
+
+/* Floating Hearts Animation Background */
+.floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -20px;
+  animation: floatUp 15s linear infinite;
+  opacity: 0.3;
+  font-size: 24px;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
